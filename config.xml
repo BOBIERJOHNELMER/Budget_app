@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="com.salarywise.app" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:android="http://schemas.android.com/apk/res/android">
+    <name>SalaryWise</name>
+    <description>Offline salary budgeting and grocery simulation app.</description>
+    <author email="dev@example.com" href="https://example.com">SalaryWise</author>
+    <content src="index.html" />
+    <access origin="*" />
+    <allow-navigation href="*" />
+    <preference name="DisallowOverscroll" value="true" />
+    <preference name="BackgroundColor" value="#f4f7fb" />
+    <preference name="StatusBarBackgroundColor" value="#0b132b" />
+    <preference name="StatusBarOverlaysWebView" value="false" />
+    <preference name="android-minSdkVersion" value="24" />
+    <preference name="android-targetSdkVersion" value="34" />
+    <platform name="android">
+        <config-file parent="/manifest" target="AndroidManifest.xml">
+            <uses-permission android:name="android.permission.CAMERA" />
+            <uses-feature android:name="android.hardware.camera" android:required="false" />
+            <uses-feature android:name="android.hardware.camera.autofocus" android:required="false" />
+        </config-file>
+        <edit-config file="app/src/main/AndroidManifest.xml" mode="merge" target="/manifest/application">
+            <application android:requestLegacyExternalStorage="true" />
+        </edit-config>
+    </platform>
+</widget>

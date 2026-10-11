@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: salarywise-ai-proxy
+    runtime: node
+    plan: free
+    buildCommand: npm ci --omit=dev
+    startCommand: node server/ai-proxy.js
+    healthCheckPath: /health
+    envVars:
+      - key: AI_PROXY_HOST
+        value: 0.0.0.0
+      - key: AI_PROXY_ALLOWED_ORIGINS
+        value: https://localhost
+      - key: AI_PROXY_ACCESS_TOKEN
+        generateValue: true
+      - key: OPENROUTER_API_KEY
+        sync: false
+      - key: GROQ_API_KEY
+        sync: false
